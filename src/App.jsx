@@ -73,8 +73,7 @@ function App() {
         </div>
         <button type="submit">{editIndex !== null ? 'Guardar Cambios' : 'Agregar'}</button>
       </form>
-
-      <div>
+      <div className="recordatorio-container">
         {recordatorios.map((recordatorio, index) => (
           <div key={index} className="recordatorio-card">
             <span>{recordatorio.fecha}</span>
