@@ -70,7 +70,7 @@ function App() {
                   checked={importante} 
                   onChange={(e) => setImportante(e.target.checked)} 
                 />
-                Importante
+                Valioso
               </label>
             </div>
             <button className="agregar" type="submit">{editIndex !== null ? 'Guardar Cambios' : 'Agregar'}</button>
@@ -79,10 +79,11 @@ function App() {
         </div>
         <div className="recordatorios-container">
           {recordatorios.map((recordatorio, index) => (
-            <div key={index} className={`recordatorio-card ${recordatorio.descripcion.length > 100 ? 'double-column' : ''}`}>
+            <div key={index} className={`recordatorio-card ${recordatorio.descripcion.length > 50 ? 'double-column' : ''}`}>
               <span>{recordatorio.fecha}</span>
               <p>{recordatorio.descripcion}</p>
-              {recordatorio.importante && <span className="estrella">★</span>}
+              {recordatorio.importante && (
+              <img src="./src/img/import.png" alt="Importante" className="imagen-importante" />)}
               <div className="acciones">
                 <button onClick={() => editarRecordatorio(index)}>Editar</button>
                 <button onClick={() => eliminarRecordatorio(index)}>Eliminar</button>
