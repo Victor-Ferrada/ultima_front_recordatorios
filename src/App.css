@@ -8,19 +8,26 @@
 }
 
 body {
+    background-image: url('/src/img/1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    padding-top: 20px;
+    align-items: center;
+    height: 100%;
     overflow-y: auto;
+    padding: 30px;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .App {
-    background: #24303c;
+    background: #041a4c;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 7px 13px 37px #000;
@@ -31,6 +38,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 600px; /* Ajusta el ancho máximo según tu diseño */
+    margin-bottom: 20px; /* Espacio entre el formulario y los recordatorios */
+    border: 1px solid #f3fefe9a;
 }
 
 h1 {
@@ -43,10 +53,14 @@ h1 {
     background: #24303c;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 7px 13px 37px #000;
+    box-shadow: 7px 13px 37px #ffffff28;
     width: 100%;
     max-width: 400px; /* Ajustar el ancho máximo del formulario */
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 form {
@@ -54,12 +68,14 @@ form {
     flex-direction: column;
     gap: 15px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 form div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 form label {
@@ -98,18 +114,29 @@ button:hover {
     background: #0056b3;
 }
 
+button.agregar {
+    background: #a761b1; 
+    color: #000000;
+}
+
+button.agregar:hover {
+    background: #d2add6; 
+    color: #000000;
+}
+
 .recordatorios-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 10px;
+    gap: 20px;
     width: 100%;
     max-width: 900px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .recordatorio-card {
-    background: #24303c;
-    border: 1px solid #1f53c5;
+    background: #041a4c;
+    border: 1px solid #f3fefe9a;
     border-radius: 5px;
     padding: 15px;
     position: relative;
@@ -117,6 +144,7 @@ button:hover {
     overflow: hidden;
     color: white;
     word-wrap: break-word;
+    box-shadow: 1px 1px 8px #000;
 }
 
 .recordatorio-card.double-column {
@@ -151,17 +179,29 @@ button:hover {
 }
 
 .acciones button:nth-child(1) {
-    background: #0048ff89;
+    background: #0048ff47;
     color: white;
 }
 
+
+.acciones button:nth-child(1):hover {
+    background: #00000047;
+    color: white;
+}
+
+
 .acciones button:nth-child(2) {
-    background: #fffb00c5;
+    background: #d96eb2;
     color: rgb(0, 0, 0);
 }
 
-@media (max-width: 600px) {
-    .form-container {
-        max-width: 100%; /* Ajustar el ancho máximo del formulario para dispositivos móviles */
+.acciones button:nth-child(2):hover {
+    background: #ecfaff;
+    color: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 1024px) {
+    .recordatorios-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

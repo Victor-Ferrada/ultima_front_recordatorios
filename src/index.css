@@ -67,9 +67,4 @@ button:focus-visible {
   }
 }
 
-body {
-  background-image: url('./img/fondo.jpg');; /* ajusta la ruta según la ubicación real de tu imagen */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
+

@@ -40,9 +40,9 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='principal'>
       <div className="App">
-        <h1>Recordatorio</h1>
+        <h1>MEMORIAS</h1>
         <div className="form-container">
           <form onSubmit={agregarRecordatorio}>
             <div>
@@ -73,7 +73,7 @@ function App() {
                 Importante
               </label>
             </div>
-            <button type="submit">{editIndex !== null ? 'Guardar Cambios' : 'Agregar'}</button>
+            <button className="agregar" type="submit">{editIndex !== null ? 'Guardar Cambios' : 'Agregar'}</button>
           </form>
         </div>
         </div>
