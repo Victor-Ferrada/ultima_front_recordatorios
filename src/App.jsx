@@ -40,52 +40,56 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Recordatorio</h1>
-      <form onSubmit={agregarRecordatorio}>
-        <div>
-          <label>Fecha: </label>
-          <input 
-            type="date" 
-            value={fecha} 
-            onChange={(e) => setFecha(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Descripción: </label>
-          <input 
-            type="text" 
-            value={descripcion} 
-            onChange={(e) => setDescripcion(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>
-            <input 
-              type="checkbox" 
-              checked={importante} 
-              onChange={(e) => setImportante(e.target.checked)} 
-            />
-            Importante
-          </label>
-        </div>
-        <button type="submit">{editIndex !== null ? 'Guardar Cambios' : 'Agregar'}</button>
-      </form>
-      <div className="recordatorio-container">
-        {recordatorios.map((recordatorio, index) => (
-          <div key={index} className="recordatorio-card">
-            <span>{recordatorio.fecha}</span>
-            <p>{recordatorio.descripcion}</p>
-            {recordatorio.importante && <span className="estrella">★</span>}
-            <div className="acciones">
-              <button onClick={() => editarRecordatorio(index)}>Editar</button>
-              <button onClick={() => eliminarRecordatorio(index)}>Eliminar</button>
+    <div>
+      <div className="App">
+        <h1>Recordatorio</h1>
+        <div className="form-container">
+          <form onSubmit={agregarRecordatorio}>
+            <div>
+              <label>Fecha: </label>
+              <input 
+                type="date" 
+                value={fecha} 
+                onChange={(e) => setFecha(e.target.value)} 
+                required 
+              />
             </div>
-          </div>
-        ))}
-      </div>
+            <div>
+              <label>Descripción: </label>
+              <input 
+                type="text" 
+                value={descripcion} 
+                onChange={(e) => setDescripcion(e.target.value)} 
+                required 
+              />
+            </div>
+            <div>
+              <label>
+                <input 
+                  type="checkbox" 
+                  checked={importante} 
+                  onChange={(e) => setImportante(e.target.checked)} 
+                />
+                Importante
+              </label>
+            </div>
+            <button type="submit">{editIndex !== null ? 'Guardar Cambios' : 'Agregar'}</button>
+          </form>
+        </div>
+        </div>
+        <div className="recordatorios-container">
+          {recordatorios.map((recordatorio, index) => (
+            <div key={index} className={`recordatorio-card ${recordatorio.descripcion.length > 100 ? 'double-column' : ''}`}>
+              <span>{recordatorio.fecha}</span>
+              <p>{recordatorio.descripcion}</p>
+              {recordatorio.importante && <span className="estrella">★</span>}
+              <div className="acciones">
+                <button onClick={() => editarRecordatorio(index)}>Editar</button>
+                <button onClick={() => eliminarRecordatorio(index)}>Eliminar</button>
+              </div>
+            </div>
+          ))}
+        </div>
     </div>
   );
 }
